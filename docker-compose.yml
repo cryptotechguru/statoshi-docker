@@ -1,9 +1,12 @@
 version: '2'
 services:
+  tesseract-statoshi:
+    image: macterra/tesseract-node:statoshi
+    container_name: tesseract
   grafana_graphite:
     build: .
     image: eminn/grafana-dashboard
-    container_name: grafana-dashboard
+    container_name: statsd
     ports:
       - '80:80'
       - '81:81'
