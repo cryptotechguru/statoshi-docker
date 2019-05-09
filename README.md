@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-* Make sure you have docker and docker-compose installed
+* Make sure you have `docker`, `docker-compose`, and `make` installed
 * git clone this repo
 * cd to the new repo folder
 * Run `make up` to launch the app
