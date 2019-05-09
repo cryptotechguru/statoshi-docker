@@ -5,7 +5,7 @@ services:
     container_name: tesseract
   grafana_graphite:
     build: .
-    image: eminn/grafana-dashboard
+    image: macterra/statoshi-site
     container_name: statsd
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
