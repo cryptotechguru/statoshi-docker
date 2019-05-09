@@ -1,3 +1,16 @@
+# Tesseract Statoshi Docker App
+
+## Quick Start
+
+* Make sure you have `docker`, `docker-compose`, and `make` installed
+* git clone this repo
+* cd to the new repo folder
+* Run `make up` to launch the app
+* Navigate to http://localhost:80
+* Login as `admin/admin` to configure
+
+---
+
 StatsD + Graphite + Grafana 4
 ---------------------------------------------
 
