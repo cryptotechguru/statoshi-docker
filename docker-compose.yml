@@ -2,7 +2,7 @@ version: '2'
 services:
   tesseract-statoshi:
     image: macterra/tesseract-node:statoshi
-    container_name: tesseract
+    container_name: statoshi-node
   grafana_graphite:
     build: .
     image: macterra/statoshi-site
