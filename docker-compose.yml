@@ -6,7 +6,7 @@ services:
   grafana_graphite:
     build: .
     image: macterra/statoshi-site
-    container_name: statsd
+    container_name: grafana
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
     ports:
