@@ -1,41 +1,70 @@
 {
-  "id": 17,
-  "title": "Fee Estimates",
-  "originalTitle": "Fee Estimates",
-  "tags": [],
-  "style": "dark",
-  "timezone": "browser",
+  "__inputs": [
+    {
+      "name": "DS_LOCAL_GRAPHITE",
+      "label": "Local Graphite",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "graphite",
+      "pluginName": "Graphite"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "4.6.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "graphite",
+      "name": "Graphite",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
   "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
   "hideControls": false,
-  "sharedCrosshair": false,
+  "id": null,
+  "links": [],
   "rows": [
     {
       "collapse": false,
-      "editable": true,
       "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": null,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_LOCAL_GRAPHITE}",
           "decimals": 0,
           "editable": true,
           "error": false,
           "fill": 0,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": 0,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": 0,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 1,
-          "leftYAxisLabel": "Satoshis / byte",
           "legend": {
             "avg": false,
             "current": true,
@@ -59,51 +88,81 @@
               "yaxis": 1
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
+              "refId": "A",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block1, 0.001), 4)"
             },
             {
+              "refId": "B",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block2, 0.001), 4)"
             },
             {
+              "refId": "C",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block3, 0.001), 4)"
             },
             {
+              "refId": "D",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block4, 0.001), 4)"
             },
             {
+              "refId": "E",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block5, 0.001), 4)"
             },
             {
+              "refId": "F",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block10, 0.001), 4)"
             },
             {
+              "refId": "G",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block20, 0.001), 4)"
             },
             {
+              "refId": "H",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block100, 0.001), 4)"
             },
             {
+              "refId": "I",
               "target": "aliasByNode(scale(stats.gauges.estimates.fee.block1000, 0.001), 4)"
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "Recommended Transaction Fee for Target Confirmation in X Blocks",
           "tooltip": {
             "shared": true,
+            "sort": 0,
             "value_type": "individual"
           },
           "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "none",
-            "none"
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Satoshis / byte",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "none",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
           ]
         },
         {
@@ -112,25 +171,15 @@
             "Fee per byte": "#6ED0E0"
           },
           "bars": false,
-          "datasource": null,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_LOCAL_GRAPHITE}",
           "decimals": null,
           "editable": true,
           "error": false,
           "fill": 0,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 3,
-          "leftYAxisLabel": "Satoshis / byte",
+          "grid": {},
+          "id": 2,
           "legend": {
             "avg": true,
             "current": true,
@@ -154,81 +203,107 @@
               "yaxis": 1
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
+              "refId": "A",
               "target": "alias(divideSeries(stats.transactions.fees, #B), 'Fee per byte')"
             },
             {
               "hide": true,
+              "refId": "B",
               "target": "aliasByMetric(scale(stats.transactions.sizeBytes, 0.976563))"
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "Average Network Transaction Fees per Byte",
           "tooltip": {
             "shared": true,
+            "sort": 0,
             "value_type": "individual"
           },
           "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "none",
-            "none"
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Satoshis / byte",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "none",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
           ]
         }
       ],
-      "title": "Row"
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
     }
   ],
-  "nav": [
-    {
-      "collapse": false,
-      "enable": true,
-      "notice": false,
-      "now": true,
-      "refresh_intervals": [
-        "5s",
-        "10s",
-        "30s",
-        "1m",
-        "5m",
-        "15m",
-        "30m",
-        "1h",
-        "2h",
-        "1d"
-      ],
-      "status": "Stable",
-      "time_options": [
-        "5m",
-        "15m",
-        "1h",
-        "6h",
-        "12h",
-        "24h",
-        "2d",
-        "7d",
-        "30d"
-      ],
-      "type": "timepicker"
-    }
-  ],
+  "schemaVersion": 14,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
   "time": {
     "from": "now-7d",
     "to": "now"
   },
-  "templating": {
-    "list": []
+  "timepicker": {
+    "collapse": false,
+    "enable": true,
+    "notice": false,
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "status": "Stable",
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "type": "timepicker"
   },
-  "annotations": {
-    "list": []
-  },
-  "schemaVersion": 6,
-  "version": 15,
-  "links": []
+  "timezone": "browser",
+  "title": "Fee Estimates",
+  "version": 1
 }
