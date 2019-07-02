@@ -28,3 +28,6 @@ shell :
 
 tail :
 	docker logs -f $(CONTAINER)
+
+logs:
+	docker-compose logs -f --tail 100

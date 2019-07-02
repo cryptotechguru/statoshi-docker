@@ -1,12 +1,12 @@
 version: '2'
 services:
   tesseract-statoshi:
-    image: macterra/tesseract-node:statoshi
+    image: macterra/tesseract-node:statoshi2
     container_name: statoshi-node
   grafana_graphite:
     build: .
     image: macterra/statoshi-site
-    container_name: grafana
+    container_name: statsd
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
     ports:
